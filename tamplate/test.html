@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Myfile</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <script src="/static/css/script.js"></script>
+</head>
+<body>
+<header class="header">
+    <a  href="/">
+        <h1>TO-DO</h1>
+    </a>
+</header>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        doIt();
+    });
+
+    function doIt() {
+        obj = localStorage.getItem('editobj')
+        objparse = JSON.parse(obj)
+        document.getElementById("myTextarea").textContent = objparse.Code;
+    }
+</script>
+
+<textarea id="myTextarea"></textarea>
+<button class="button-27" role="button" onclick=editDb()>submit</button>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Myfile</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+    <script src="/static/css/script.js"></script>
+    <script src="https://kit.fontawesome.com/07f9823a7d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+    <a  href="/">
+    <h1>TO-DO</h1>
+    </a>
+</header>
+<a  href="/add">
+    <button style="float: right;" class="button-27 add" role="button">add</button>
+</a><br>
+{{ range . }}
+{{if eq .Type true}}
+    <p class="todos" onclick=doclick({{.}})>
+        <span style="color: #21ff00">DONE</span>
+        <s> {{.Code}} </s>
+{{/*        <a  href="/edit">*/}}
+{{/*        <button type="button" class="delete" > <i class="fa-solid fa-pen"></i></button>*/}}
+{{/*        </a>*/}}
+        <button type="button"  class="delete" onclick=edit({{.}}) > <i class="fa-solid fa-pen"></i></button>
+        <button type="button" class="delete" onclick=doFunction({{.}})><i class="fa-solid fa-trash-can"></i></button>
+    </p>
+{{else}}
+    <p class="todos" onclick=doclick({{.}})>
+                        {{.Code}}
+{{/*        <a  href="/edit">*/}}
+{{/*             <button type="button"  class="delete" > <i class="fa-solid fa-pen"></i></button>*/}}
+{{/*        </a>*/}}
+
+             <button type="button"  class="delete" onclick=edit({{.}}) > <i class="fa-solid fa-pen"></i></button>
+             <button type="button" class="delete" onclick=doFunction({{.}})><i class="fa-solid fa-trash-can"></i></button>
+    </p>
+{{end}}
+{{end}}
+</body>
+</html>
